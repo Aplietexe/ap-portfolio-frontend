@@ -1,0 +1,157 @@
+{
+  "root": true,
+  "ignorePatterns": ["projects/**/*", "/dist"],
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parserOptions": {
+        "project": "tsconfig.app.json"
+      },
+      "plugins": ["rxjs-angular"],
+      "extends": [
+        "hardcore",
+        "hardcore/ts",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "plugin:rxjs/recommended"
+      ],
+      "rules": {
+        "no-console": ["error", { "allow": ["warn", "error"] }],
+        "new-cap": "off",
+        "func-style": ["error", "expression"],
+        "id-length": ["error", { "exceptionPatterns": ["^_+$"] }],
+        "import/prefer-default-export": "off",
+        "import/no-deprecated": "off",
+        "max-statements": "off",
+        "no-underscore-dangle": "off",
+        "unicorn/prefer-top-level-await": "off",
+        "unicorn/prefer-event-target": "off",
+
+        "@typescript-eslint/no-extraneous-class": [
+          "error",
+          { "allowWithDecorator": true }
+        ],
+        "@typescript-eslint/consistent-type-assertions": [
+          "error",
+          { "assertionStyle": "as" }
+        ],
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error",
+          { "accessibility": "no-public" }
+        ],
+        "@typescript-eslint/init-declarations": "off",
+        "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          { "argsIgnorePattern": "^_+$" }
+        ],
+        "@typescript-eslint/prefer-readonly-parameter-types": "off",
+        "@typescript-eslint/parameter-properties": [
+          "error",
+          {
+            "prefer": "parameter-property"
+          }
+        ],
+        "@typescript-eslint/require-array-sort-compare": [
+          "error",
+          { "ignoreStringArrays": true }
+        ],
+        "@typescript-eslint/consistent-type-imports": "off",
+        "@typescript-eslint/restrict-template-expressions": "off",
+        "@typescript-eslint/unbound-method": [
+          "error",
+          { "ignoreStatic": true }
+        ],
+        "@typescript-eslint/strict-boolean-expressions": [
+          "error",
+          {
+            "allowNullableBoolean": true,
+            "allowNullableString": true
+          }
+        ],
+        "etc/no-misused-generics": "off",
+        "etc/no-t": "off",
+
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "type": "element",
+            "prefix": "app",
+            "style": "kebab-case"
+          }
+        ],
+        "@angular-eslint/contextual-decorator": "error",
+        "@angular-eslint/no-conflicting-lifecycle": "error",
+        "@angular-eslint/no-lifecycle-call": "error",
+        "@angular-eslint/no-pipe-impure": "error",
+        "@angular-eslint/no-queries-metadata-property": "error",
+        "@angular-eslint/prefer-output-readonly": "error",
+        "@angular-eslint/relative-url-prefix": "error",
+        "@angular-eslint/use-component-selector": "error",
+        "@angular-eslint/use-component-view-encapsulation": "error",
+        "@angular-eslint/use-injectable-provided-in": "error",
+
+        "rxjs-angular/prefer-takeuntil": "error",
+
+        "rxjs/finnish": "error",
+        "rxjs/no-compat": "error",
+        "rxjs/no-connectable": "error",
+        "rxjs/no-cyclic-action": "error",
+        "rxjs/no-explicit-generics": "error",
+        "rxjs/no-exposed-subjects": "error",
+        "rxjs/no-ignored-observable": "error",
+        "rxjs/no-subject-value": "error",
+        "rxjs/no-topromise": "error",
+        "rxjs/no-unsafe-catch": "error",
+        "rxjs/no-unsafe-first": "error",
+        "rxjs/no-unsafe-switchmap": "error",
+        "rxjs/prefer-observer": "error",
+        "rxjs/throw-error": "error"
+      },
+      "overrides": [
+        {
+          "files": ["*.spec.ts"],
+          "parserOptions": {
+            "project": "tsconfig.spec.json"
+          },
+          "plugins": ["jasmine"],
+          "extends": ["plugin:jasmine/recommended"],
+          "rules": {
+            "jasmine/expect-matcher": "error",
+            "jasmine/expect-single-argument": "error",
+            "jasmine/missing-expect": "error",
+            "jasmine/named-spy": "error",
+            "jasmine/new-line-before-expect": "error",
+            "jasmine/new-line-between-declarations": "error",
+            "jasmine/no-assign-spyon": "error",
+            "jasmine/no-describe-variables": "error",
+            "jasmine/no-disabled-tests": "error",
+            "jasmine/no-expect-in-setup-teardown": "error",
+            "jasmine/no-pending-tests": "error",
+            "jasmine/no-promise-without-done-fail": "error",
+            "jasmine/no-spec-dupes": "error",
+            "jasmine/no-suite-dupes": "error",
+            "jasmine/no-unsafe-spy": "error",
+            "jasmine/prefer-jasmine-matcher": "error",
+            "jasmine/prefer-promise-strategies": "error",
+            "jasmine/prefer-toHaveBeenCalledWith": "error",
+            "jasmine/prefer-toBeUndefined": "error"
+          }
+        }
+      ]
+    },
+    {
+      "files": ["*.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {}
+    }
+  ]
+}
