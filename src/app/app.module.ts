@@ -3,10 +3,13 @@ import { BrowserModule } from "@angular/platform-browser"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 
 import { AppComponent } from "./app.component"
+import { NavbarComponent } from "./navbar/navbar.component"
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, BrowserAnimationsModule],
+
+  imports: [BrowserModule, BrowserAnimationsModule, NavbarComponent],
+
   providers: [],
   bootstrap: [AppComponent],
 })
