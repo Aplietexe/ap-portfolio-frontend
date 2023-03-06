@@ -5,5 +5,14 @@
   "enableGlobDot": true,
   "allowCompoundWords": true,
   "useGitignore": true,
-  "words": ["devkit", "Programo", "spyon", "topromise"]
+  "words": [
+    "aiohttp",
+    "devkit",
+    "MERN",
+    "Palombini",
+    "Pietro",
+    "Programo",
+    "spyon",
+    "topromise"
+  ]
 }

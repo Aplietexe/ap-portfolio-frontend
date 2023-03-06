@@ -1,0 +1,46 @@
+@import "../../constants.module";
+
+.header {
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+  background-color: #535353;
+  aspect-ratio: 4 / 1;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.profile {
+  padding-inline: $page-padding;
+  padding-block-start: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+
+  .avatar {
+    display: grid;
+    width: max(30%, 300px);
+    margin: auto;
+    padding: 2rem;
+    place-items: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+    }
+  }
+
+  .info {
+    width: max(70%, 400px);
+    max-width: 100%;
+    margin: auto;
+    white-space: pre-wrap;
+
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+}
