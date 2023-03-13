@@ -1,0 +1,14 @@
+<div class="container">
+  <h2 class="section-title">Languages</h2>
+  <div class="languages">
+    <div class="language" *ngFor="let language of languages">
+      <div class="image">
+        <img src="{{ language.image }}" alt="" width="250" height="150" />
+      </div>
+      <div class="name">
+        {{ language.name }}
+      </div>
+      <div class="level" [innerHTML]="language.level"></div>
+    </div>
+  </div>
+</div>
