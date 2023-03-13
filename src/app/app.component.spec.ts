@@ -5,6 +5,7 @@ import { EducationSectionComponent } from "./education-section/education-section
 import { ExperienceSectionComponent } from "./experience-section/experience-section.component"
 import { NavbarComponent } from "./navbar/navbar.component"
 import { ProfileInfoComponent } from "./profile-info/profile-info.component"
+import { ProjectsSectionComponent } from "./projects-section/projects-section.component"
 import { SkillsSectionComponent } from "./skills-section/skills-section.component"
 
 describe("AppComponent", () => {
@@ -21,6 +22,7 @@ describe("AppComponent", () => {
         ExperienceSectionComponent,
         EducationSectionComponent,
         SkillsSectionComponent,
+        ProjectsSectionComponent,
       ],
     }).compileComponents()
 
