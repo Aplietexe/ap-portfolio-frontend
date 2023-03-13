@@ -7,7 +7,7 @@
           <img ngSrc="{{ item.image }}" width="150" height="150" alt="" />
         </div>
         <div class="info">
-          <h3>{{ item.title }}</h3>
+          <h3 [innerHTML]="item.title"></h3>
           <h4>{{ item.subtitle }}</h4>
           <p>{{ item.description }}</p>
         </div>
