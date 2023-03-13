@@ -7,6 +7,7 @@ import { EducationSectionComponent } from "./education-section/education-section
 import { ExperienceSectionComponent } from "./experience-section/experience-section.component"
 import { NavbarComponent } from "./navbar/navbar.component"
 import { ProfileInfoComponent } from "./profile-info/profile-info.component"
+import { SkillsSectionComponent } from "./skills-section/skills-section.component"
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { ProfileInfoComponent } from "./profile-info/profile-info.component"
     ProfileInfoComponent,
     ExperienceSectionComponent,
     EducationSectionComponent,
+    SkillsSectionComponent,
   ],
 
   providers: [],
