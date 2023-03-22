@@ -1,3 +1,4 @@
+import { HttpClientModule } from "@angular/common/http"
 import { TestBed, type ComponentFixture } from "@angular/core/testing"
 
 import { AppComponent } from "./app.component"
@@ -25,6 +26,7 @@ describe("AppComponent", () => {
         SkillsSectionComponent,
         ProjectsSectionComponent,
         LanguagesSectionComponent,
+        HttpClientModule,
       ],
     }).compileComponents()
 
