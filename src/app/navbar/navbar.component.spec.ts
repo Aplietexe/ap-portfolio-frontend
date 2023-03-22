@@ -1,4 +1,5 @@
 import { CommonModule, NgOptimizedImage } from "@angular/common"
+import { HttpClientModule } from "@angular/common/http"
 import { TestBed, type ComponentFixture } from "@angular/core/testing"
 import { MatButtonModule } from "@angular/material/button"
 import { MatToolbarModule } from "@angular/material/toolbar"
@@ -17,6 +18,7 @@ describe("NavbarComponent", () => {
         MatToolbarModule,
         NgOptimizedImage,
         MatButtonModule,
+        HttpClientModule,
       ],
     }).compileComponents()
 

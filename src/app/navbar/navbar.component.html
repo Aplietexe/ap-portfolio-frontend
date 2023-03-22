@@ -33,6 +33,13 @@
       </svg>
     </a>
 
-    <button mat-raised-button color="primary" class="button">Log In</button>
+    <button
+      mat-raised-button
+      color="primary"
+      class="button"
+      (click)="isLoggedIn ? logout() : openDialog()"
+    >
+      Log {{ isLoggedIn ? "out" : "in" }}
+    </button>
   </div>
 </mat-toolbar>
