@@ -1,30 +1,131 @@
-import { CommonModule, NgOptimizedImage } from "@angular/common"
-import { ChangeDetectionStrategy, Component } from "@angular/core"
+import { CommonModule } from "@angular/common"
+import { Component, OnDestroy, OnInit } from "@angular/core"
+import { FormsModule } from "@angular/forms"
+import { MatButtonModule } from "@angular/material/button"
+import { MatFormFieldModule } from "@angular/material/form-field"
+import { MatIconModule } from "@angular/material/icon"
+import { MatInputModule } from "@angular/material/input"
+import { MatSnackBar, MatSnackBarModule } from "@angular/material/snack-bar"
+import { Subject, takeUntil } from "rxjs"
+
+import { AuthService } from "../auth/auth.service"
+import { ImageUploaderComponent } from "../image-uploader/image-uploader.component"
+
+import { ProfileInfoService } from "./profile-info.service"
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: "app-profile-info",
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+
+  imports: [
+    CommonModule,
+    ImageUploaderComponent,
+    MatIconModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSnackBarModule,
+    FormsModule,
+  ],
+
   templateUrl: "./profile-info.component.html",
   styleUrls: ["./profile-info.component.scss"],
 })
-export class ProfileInfoComponent {
-  headerUrl = "https://source.unsplash.com/random/1920x1080"
+export class ProfileInfoComponent implements OnInit, OnDestroy {
+  private readonly destroy$ = new Subject<void>()
 
-  avatarUrl = "https://source.unsplash.com/random/200x200"
+  headerUrl?: string
 
-  name = "Pietro Palombini"
+  avatarUrl?: string
 
-  title = "Fullstack Developer - TypeScript - Next - MERN | CS Student"
+  name?: string
 
-  about = `I started coding at th1e age of 13, driven by my love for math, computers, and problem-solving. For years, I only worked on my personal projects, seeking to automate frequent actions, improve school projects, solve problems for friends and relatives and try out stuff for fun.
+  title?: string
 
-Eventually, I decided to acquire a better education and started taking online courses. When I decided I was ready to commit to projects with clients, I started working as a freelance developer to gain real-world experience, work with other people, and improve my communication skills. 
+  about?: string
 
-As of 2023, I am pursuing degrees in Computer Science and Applied Mathematics, and have experience working as a Software Engineer with JavaScript/TypeScript, the MERN stack, Next.js, and other libraries for frontend, backend and fullstack development such as react-router, Bootstrap, Selenium, and styled-components, among others. On the non-web side, I have experience with Python, aiohttp, and beautifulsoup. I am knowledgeable and use Bash and SQL on an almost daily basis. 
+  constructor(
+    private readonly profileInfoService: ProfileInfoService,
+    private readonly authService: AuthService,
+    private readonly snackBar: MatSnackBar,
+  ) {}
 
-I care a great deal about efficiency in my personal, academic, and professional life, which is why my interests include improving my daily productivity, personal finance, learning Dvorak, and Personal Knowledge Management systems. 
+  ngOnInit() {
+    this.profileInfoService
+      .getProfileInfo()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(({ headerUrl, avatarUrl, name, title, about }) => {
+        this.headerUrl = headerUrl
+        this.avatarUrl = avatarUrl
+        this.name = name
+        this.title = title
+        this.about = about
+      })
+  }
 
-In addition to pursuing degrees in CS and AM, I am learning German, LaTeX, data science, and machine learning, as well as looking to broaden my knowledge of web technologies and stay current with the latest developments in web development.`
+  ngOnDestroy() {
+    this.destroy$.next()
+    this.destroy$.complete()
+  }
+
+  get isLoggedIn(): boolean {
+    return this.authService.isLoggedIn
+  }
+
+  showSaved(part: string) {
+    this.snackBar.open(`${part} Saved`, "Dismiss")
+  }
+
+  onHeaderUrlChange(url: string) {
+    this.headerUrl = url
+    this.profileInfoService
+      .updateHeaderUrl(url)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(() => {
+        this.showSaved("Header")
+      })
+  }
+
+  onAvatarUrlChange(url: string) {
+    this.avatarUrl = url
+    this.profileInfoService
+      .updateAvatarUrl(url)
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(() => {
+        this.showSaved("Avatar")
+      })
+  }
+
+  onNameChange() {
+    if (this.name) {
+      this.profileInfoService
+        .updateName(this.name)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe(() => {
+          this.showSaved("Name")
+        })
+    }
+  }
+
+  onTitleChange() {
+    if (this.title) {
+      this.profileInfoService
+        .updateTitle(this.title)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe(() => {
+          this.showSaved("Title")
+        })
+    }
+  }
+
+  onAboutChange() {
+    if (this.about) {
+      this.profileInfoService
+        .updateAbout(this.about)
+        .pipe(takeUntil(this.destroy$))
+        .subscribe(() => {
+          this.showSaved("About")
+        })
+    }
+  }
 }

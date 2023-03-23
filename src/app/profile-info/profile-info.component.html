@@ -1,15 +1,58 @@
 <div>
   <header class="header">
-    <img ngSrc="{{ headerUrl }}" fill alt="" priority />
+    <div *ngIf="headerUrl">
+      <img src="{{ headerUrl }}" alt="" />
+      <app-image-uploader
+        [isLoggedIn]="isLoggedIn"
+        (url)="onHeaderUrlChange($event)"
+      ></app-image-uploader>
+    </div>
   </header>
   <div class="profile">
     <div class="avatar">
-      <img ngSrc="{{ avatarUrl }}" width="300" height="300" alt="" />
+      <div *ngIf="avatarUrl">
+        <app-image-uploader
+          [isLoggedIn]="isLoggedIn"
+          (url)="onAvatarUrlChange($event)"
+        ></app-image-uploader>
+        <img src="{{ avatarUrl }}" width="300" height="300" alt="" />
+      </div>
     </div>
     <div class="info">
-      <h1>{{ name }}</h1>
-      <h2>{{ title }}</h2>
-      <p>{{ about }}</p>
+      <h1>
+        <div *ngIf="isLoggedIn">
+          <mat-form-field class="form-field">
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="name" name="name" />
+          </mat-form-field>
+          <button mat-icon-button color="primary" (click)="onNameChange()">
+            <mat-icon>check_circle</mat-icon>
+          </button>
+        </div>
+        <span *ngIf="!isLoggedIn">{{ name }}</span>
+      </h1>
+      <h2>
+        <div *ngIf="isLoggedIn">
+          <mat-form-field class="form-field">
+            <mat-label>Title</mat-label>
+            <input matInput [(ngModel)]="title" name="title" />
+          </mat-form-field>
+          <button mat-icon-button color="primary" (click)="onTitleChange()">
+            <mat-icon>check_circle</mat-icon>
+          </button>
+        </div>
+        <span *ngIf="!isLoggedIn">{{ title }}</span>
+      </h2>
+      <div *ngIf="isLoggedIn">
+        <mat-form-field class="form-field">
+          <mat-label>About</mat-label>
+          <textarea matInput [(ngModel)]="about" name="about"></textarea>
+        </mat-form-field>
+        <button mat-icon-button color="primary" (click)="onAboutChange()">
+          <mat-icon>check_circle</mat-icon>
+        </button>
+      </div>
+      <p *ngIf="!isLoggedIn">{{ about }}</p>
     </div>
   </div>
 </div>

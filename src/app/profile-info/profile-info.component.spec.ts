@@ -1,3 +1,4 @@
+import { HttpClientModule } from "@angular/common/http"
 import { TestBed, type ComponentFixture } from "@angular/core/testing"
 
 import { ProfileInfoComponent } from "./profile-info.component"
@@ -8,7 +9,7 @@ describe("ProfileInfoComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProfileInfoComponent],
+      imports: [ProfileInfoComponent, HttpClientModule],
     }).compileComponents()
 
     fixture = TestBed.createComponent(ProfileInfoComponent)
