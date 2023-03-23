@@ -4,6 +4,7 @@ import { BrowserModule } from "@angular/platform-browser"
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations"
 
 import { AppComponent } from "./app.component"
+import { authInterceptorProvider } from "./auth/auth.interceptor"
 import { EducationSectionComponent } from "./education-section/education-section.component"
 import { ExperienceSectionComponent } from "./experience-section/experience-section.component"
 import { LanguagesSectionComponent } from "./languages-section/languages-section.component"
@@ -28,7 +29,8 @@ import { SkillsSectionComponent } from "./skills-section/skills-section.componen
     HttpClientModule,
   ],
 
-  providers: [],
+  providers: [authInterceptorProvider],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}
