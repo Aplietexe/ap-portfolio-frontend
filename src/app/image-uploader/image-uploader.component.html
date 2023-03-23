@@ -1,0 +1,12 @@
+<div *ngIf="isLoggedIn" class="edit">
+  <input
+    hidden
+    type="file"
+    name="file"
+    [id]="uid"
+    (change)="onFileChange($event)"
+  />
+  <label [for]="uid">
+    <mat-icon>edit</mat-icon>
+  </label>
+</div>
