@@ -1,17 +1,8 @@
 <div class="two-column-display">
   <h2 class="section-title">{{ sectionTitle }}</h2>
   <div class="items">
-    <div class="item" *ngFor="let item of items">
-      <div class="item">
-        <div class="image">
-          <img ngSrc="{{ item.image }}" width="150" height="150" alt="" />
-        </div>
-        <div class="info">
-          <h3 [innerHTML]="item.title"></h3>
-          <h4>{{ item.subtitle }}</h4>
-          <p>{{ item.description }}</p>
-        </div>
-      </div>
+    <div *ngFor="let item of items">
+      <app-display-item [item]="item"></app-display-item>
     </div>
   </div>
 </div>

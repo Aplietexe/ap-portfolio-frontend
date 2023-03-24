@@ -1,11 +1,13 @@
-import { CommonModule, NgOptimizedImage } from "@angular/common"
+import { CommonModule } from "@angular/common"
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core"
+
+import { DisplayItemComponent } from "./display-item/display-item.component"
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: "app-two-column-display",
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule, DisplayItemComponent],
   templateUrl: "./two-column-display.component.html",
   styleUrls: ["./two-column-display.component.scss"],
 })

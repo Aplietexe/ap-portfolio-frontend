@@ -15,33 +15,4 @@
     flex-direction: column;
     gap: 1rem;
   }
-
-  .item {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-
-    .image {
-      display: grid;
-      width: max(30%, 200px);
-      margin: auto;
-      padding: 2rem;
-      place-items: center;
-
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-    }
-
-    .info {
-      width: max(70%, 400px);
-      max-width: 100%;
-      margin: auto;
-
-      h3 {
-        font-size: 1.5rem;
-      }
-    }
-  }
 }
