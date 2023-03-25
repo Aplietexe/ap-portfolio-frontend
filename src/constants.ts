@@ -1,3 +1,3 @@
-const API_URL = "http://localhost:8080"
+const API_URL = "https://ap-portfolio-0gnf.onrender.com"
 
 export { API_URL }
