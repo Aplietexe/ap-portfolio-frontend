@@ -1,17 +1,22 @@
 <div class="container">
-  <h2 class="section-title">Skills</h2>
+  <h2 class="section-title">
+    Skills
+    <button
+      mat-icon-button
+      color="primary"
+      *ngIf="isLoggedIn"
+      (click)="addItem()"
+    >
+      <mat-icon>add_circle</mat-icon>
+    </button>
+  </h2>
   <div class="items">
-    <div class="item" *ngFor="let skill of skills">
-      <div class="item">
-        <div class="image">
-          <img ngSrc="{{ skill.image }}" width="150" height="150" alt="" />
-        </div>
-        <div class="info">
-          <h3>{{ skill.title }}</h3>
-          <h4>{{ skill.subtitle }}</h4>
-          <p>{{ skill.description }}</p>
-        </div>
-      </div>
+    <div class="item" *ngFor="let skill of skills$ | async">
+      <app-skill
+        [item]="skill"
+        (itemDelete)="onItemDelete($event)"
+        (itemSave)="onItemSave($event)"
+      ></app-skill>
     </div>
   </div>
 </div>

@@ -1,0 +1,51 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: max(350px, 100%/5);
+  padding: 1rem;
+  margin-inline: auto;
+
+  .image {
+    position: relative;
+    display: grid;
+    width: max(30%, 200px);
+    margin-inline: auto;
+    padding: 2rem;
+    place-items: center;
+
+    .image-uploader {
+      position: absolute;
+      top: 0;
+      translate: -12px; // Half the size of the edit button
+      margin: auto;
+    }
+
+    img {
+      max-width: 100%;
+      aspect-ratio: 1/1;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  .info {
+    width: max(70%, 400px);
+    max-width: 100%;
+    margin-inline: auto;
+
+    .form-field {
+      width: 100%;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+}

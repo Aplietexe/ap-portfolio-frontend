@@ -14,39 +14,10 @@
     display: flex;
     flex-wrap: wrap;
     align-content: start;
-  }
+    justify-content: center;
 
-  .item {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    width: max(350px, 100%/5);
-    padding: 1rem;
-    margin-inline: auto;
-
-    .image {
-      display: grid;
-      width: max(30%, 200px);
-      margin-inline: auto;
-      padding: 2rem;
-      place-items: center;
-
-      img {
-        max-width: 100%;
-        aspect-ratio: 1/1;
-        height: auto;
-        object-fit: contain;
-      }
-    }
-
-    .info {
-      width: max(70%, 400px);
-      max-width: 100%;
-      margin-inline: auto;
-
-      h3 {
-        font-size: 1.5rem;
-      }
+    .item {
+      width: max(350px, 20%);
     }
   }
 }
