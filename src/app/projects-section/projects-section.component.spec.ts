@@ -1,3 +1,4 @@
+import { HttpClientModule } from "@angular/common/http"
 import { TestBed, type ComponentFixture } from "@angular/core/testing"
 
 import { ProjectsSectionComponent } from "./projects-section.component"
@@ -8,7 +9,7 @@ describe("ProjectsSectionComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProjectsSectionComponent],
+      imports: [ProjectsSectionComponent, HttpClientModule],
     }).compileComponents()
 
     fixture = TestBed.createComponent(ProjectsSectionComponent)

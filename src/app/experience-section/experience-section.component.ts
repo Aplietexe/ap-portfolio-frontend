@@ -1,13 +1,12 @@
-import { CommonModule, NgOptimizedImage } from "@angular/common"
-import { ChangeDetectionStrategy, Component } from "@angular/core"
+import { CommonModule } from "@angular/common"
+import { Component } from "@angular/core"
 
 import { TwoColumnDisplayComponent } from "../two-column-display/two-column-display.component"
 
 @Component({
-  changeDetection: ChangeDetectionStrategy.OnPush,
   selector: "app-experience-section",
   standalone: true,
-  imports: [CommonModule, NgOptimizedImage, TwoColumnDisplayComponent],
+  imports: [CommonModule, TwoColumnDisplayComponent],
   templateUrl: "./experience-section.component.html",
   styleUrls: ["./experience-section.component.scss"],
 })

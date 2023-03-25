@@ -4,11 +4,19 @@
   width: 100%;
 
   .image {
+    position: relative;
     display: grid;
     width: max(30%, 200px);
     margin: auto;
-    padding: 2rem;
+    padding: 3rem 1rem 2rem;
     place-items: center;
+
+    .image-uploader {
+      position: absolute;
+      top: 0;
+      translate: -12px; // Half the size of the edit button
+      margin: auto;
+    }
 
     img {
       max-width: 100%;
@@ -20,6 +28,17 @@
     width: max(70%, 400px);
     max-width: 100%;
     margin: auto;
+
+    .form-field {
+      width: 80%;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 10rem;
+    }
 
     h3 {
       font-size: 1.5rem;

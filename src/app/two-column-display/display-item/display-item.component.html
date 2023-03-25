@@ -1,10 +1,52 @@
-<div class="item" *ngIf="item">
+<div class="item" *ngIf="item && currentItem">
   <div class="image">
-    <img ngSrc="{{ item.image }}" width="150" height="150" alt="" />
+    <app-image-uploader
+      class="image-uploader"
+      [isLoggedIn]="isLoggedIn"
+      (url)="currentItem.image = $event"
+    ></app-image-uploader>
+    <img
+      src="{{ isLoggedIn ? currentItem.image : item.image }}"
+      width="150"
+      height="150"
+      alt=""
+    />
   </div>
   <div class="info">
-    <h3 [innerHTML]="item.title"></h3>
-    <h4>{{ item.subtitle }}</h4>
-    <p>{{ item.description }}</p>
+    <h3 *ngIf="!isLoggedIn" [innerHTML]="item.title"></h3>
+    <h3 *ngIf="isLoggedIn">
+      <mat-form-field class="form-field">
+        <mat-label>Title</mat-label>
+        <input matInput [(ngModel)]="currentItem.title" name="title" />
+      </mat-form-field>
+    </h3>
+    <h4>
+      <div *ngIf="isLoggedIn">
+        <mat-form-field class="form-field">
+          <mat-label>Subtitle</mat-label>
+          <input matInput [(ngModel)]="currentItem.subtitle" name="subtitle" />
+        </mat-form-field>
+      </div>
+      <span *ngIf="!isLoggedIn">{{ item.subtitle }}</span>
+    </h4>
+    <div *ngIf="isLoggedIn">
+      <mat-form-field class="form-field">
+        <mat-label>Description</mat-label>
+        <textarea
+          matInput
+          [(ngModel)]="currentItem.description"
+          name="description"
+        ></textarea>
+      </mat-form-field>
+    </div>
+    <p *ngIf="!isLoggedIn">{{ item.description }}</p>
+    <div class="buttons" *ngIf="isLoggedIn">
+      <button mat-icon-button color="primary" (click)="saveItem()">
+        <mat-icon>check_circle</mat-icon>
+      </button>
+      <button mat-raised-button color="primary" (click)="deleteItem()">
+        Delete
+      </button>
+    </div>
   </div>
 </div>

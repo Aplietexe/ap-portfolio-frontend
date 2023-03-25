@@ -1,3 +1,4 @@
+import { HttpClientModule } from "@angular/common/http"
 import { TestBed, type ComponentFixture } from "@angular/core/testing"
 
 import { TwoColumnDisplayComponent } from "./two-column-display.component"
@@ -8,7 +9,7 @@ describe("TwoColumnDisplayComponent", () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TwoColumnDisplayComponent],
+      imports: [TwoColumnDisplayComponent, HttpClientModule],
     }).compileComponents()
 
     fixture = TestBed.createComponent(TwoColumnDisplayComponent)

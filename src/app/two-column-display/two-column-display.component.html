@@ -1,8 +1,22 @@
 <div class="two-column-display">
-  <h2 class="section-title">{{ sectionTitle }}</h2>
+  <h2 class="section-title">
+    {{ sectionTitle }}
+    <button
+      mat-icon-button
+      color="primary"
+      *ngIf="isLoggedIn"
+      (click)="addItem()"
+    >
+      <mat-icon>add_circle</mat-icon>
+    </button>
+  </h2>
   <div class="items">
-    <div *ngFor="let item of items">
-      <app-display-item [item]="item"></app-display-item>
+    <div *ngFor="let item of displayItems$ | async">
+      <app-display-item
+        [item]="item"
+        (itemDelete)="onItemDelete($event)"
+        (itemSave)="onItemSave($event)"
+      ></app-display-item>
     </div>
   </div>
 </div>
