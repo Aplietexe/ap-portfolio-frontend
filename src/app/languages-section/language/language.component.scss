@@ -13,6 +13,8 @@
     .image-uploader {
       position: absolute;
       top: 0;
+      right: 50%;
+      left: 50%;
       translate: -12px; // Half the size of the edit button
       margin: auto;
     }

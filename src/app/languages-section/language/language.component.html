@@ -1,16 +1,18 @@
 <div class="item" *ngIf="item && currentItem">
-  <div class="image">
-    <app-image-uploader
-      class="image-uploader"
-      [isLoggedIn]="isLoggedIn"
-      (url)="currentItem.image = $event"
-    ></app-image-uploader>
-    <img
-      src="{{ isLoggedIn ? currentItem.image : item.image }}"
-      width="250"
-      height="150"
-      alt=""
-    />
+  <div>
+    <div class="image">
+      <app-image-uploader
+        class="image-uploader"
+        [isLoggedIn]="isLoggedIn"
+        (url)="currentItem.image = $event"
+      ></app-image-uploader>
+      <img
+        src="{{ isLoggedIn ? currentItem.image : item.image }}"
+        width="250"
+        height="150"
+        alt=""
+      />
+    </div>
   </div>
   <div class="name" *ngIf="!isLoggedIn">
     {{ item.name }}
