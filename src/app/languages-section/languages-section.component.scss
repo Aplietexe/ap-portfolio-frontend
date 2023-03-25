@@ -17,29 +17,4 @@
   place-items: center;
   gap: 1rem;
   margin: 1rem;
-
-  .language {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-
-    .image {
-      width: 100%;
-      height: 100%;
-
-      img {
-        object-fit: contain;
-      }
-    }
-
-    .name {
-      font-weight: medium;
-      font-size: 1.5rem;
-    }
-
-    .level {
-      font-weight: medium;
-      font-size: 1.2rem;
-    }
-  }
 }

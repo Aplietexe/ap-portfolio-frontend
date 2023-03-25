@@ -1,0 +1,39 @@
+<div class="item" *ngIf="item && currentItem">
+  <div class="image">
+    <app-image-uploader
+      class="image-uploader"
+      [isLoggedIn]="isLoggedIn"
+      (url)="currentItem.image = $event"
+    ></app-image-uploader>
+    <img
+      src="{{ isLoggedIn ? currentItem.image : item.image }}"
+      width="250"
+      height="150"
+      alt=""
+    />
+  </div>
+  <div class="name" *ngIf="!isLoggedIn">
+    {{ item.name }}
+  </div>
+  <div *ngIf="isLoggedIn">
+    <mat-form-field class="form-field">
+      <mat-label>Language</mat-label>
+      <input matInput [(ngModel)]="currentItem.name" name="language" />
+    </mat-form-field>
+  </div>
+  <div *ngIf="!isLoggedIn" class="level" [innerHTML]="item.level"></div>
+  <div *ngIf="isLoggedIn" class="level">
+    <mat-form-field class="form-field">
+      <mat-label>Level</mat-label>
+      <input matInput [(ngModel)]="currentItem.level" name="level" />
+    </mat-form-field>
+  </div>
+  <div class="buttons" *ngIf="isLoggedIn">
+    <button mat-icon-button color="primary" (click)="saveItem()">
+      <mat-icon>check_circle</mat-icon>
+    </button>
+    <button mat-raised-button color="primary" (click)="deleteItem()">
+      Delete
+    </button>
+  </div>
+</div>
